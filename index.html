@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오메추</title>
+    <style>
+        /* 전체 세팅 */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 타이틀 스타일 */
+        h1 {
+            color: hwb(212 29% 33%);
+            margin-bottom: 20px;
+        }
+
+        /* 버튼 스타일 */
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: hsl(211, 39%, 70%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: hsl(211, 39%, 70%);
+        }
+
+        /* 문장 표시 영역 스타일 */
+        #sentence {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>오메추</h1>
+    <button class="button" id="category1Button">한식</button>
+    <button class="button" id="category2Button">중식</button>
+    <button class="button" id="category3Button">일식</button>
+    <button class="button" id="category4Button">양식</button>
+    <div id="sentence"></div>
+
+    <script>
+        // 각 카테고리별 문장 배열
+        const category1Sentences = [
+            "비빔밥",
+            "김밥",
+            "닭발",
+            "치킨",
+            "물회",
+            "부대찌개",
+            "알탕",
+            "라면",
+            "김치볶음밥",
+            "떡볶이"
+        ];
+
+        const category2Sentences = [
+            "짜장면",
+            "짬뽕",
+            "볶음밥",
+            "훠궈",
+            "탕수육",
+            "깐쇼새우",
+            "크림새우",
+            "마라샹궈",
+            "꿔바로우",
+            "마라탕"
+        ];
+
+        const category3Sentences = [
+            "초밥",
+            "우동",
+            "돈부리",
+            "라멘",
+            "돈까스",
+            "새우튀김",
+            "규동",
+            "가라아게",
+            "타코야키",
+            "메말소바",
+            "사케동"
+        ];
+        const category4Sentences = [
+            "파스타",
+            "스테이크",
+            "햄버거",
+            "샌드위치",
+            "샐러드",
+            "리조또",
+            "스프",
+            "피자"
+        ];
+
+        // 버튼 요소 가져오기
+        const category1Button = document.getElementById('category1Button');
+        const category2Button = document.getElementById('category2Button');
+        const category3Button = document.getElementById('category3Button');
+        const category4Button = document.getElementById('category4Button');
+
+        // 랜덤 문장을 표시하는 함수
+        function displayRandomSentence(sentences) {
+            const randomIndex = Math.floor(Math.random() * sentences.length);
+            const sentenceDisplay = document.getElementById('sentence');
+            sentenceDisplay.textContent = sentences[randomIndex];
+        }
+
+        // 각 버튼 클릭 시 해당 카테고리의 랜덤 문장 표시
+        category1Button.addEventListener('click', () => {
+            displayRandomSentence(category1Sentences);
+        });
+
+        category2Button.addEventListener('click', () => {
+            displayRandomSentence(category2Sentences);
+        });
+
+        category3Button.addEventListener('click', () => {
+            displayRandomSentence(category3Sentences);
+        });
+        category4Button.addEventListener('click', () => {
+            displayRandomSentence(category4Sentences);
+        });
+    </script>
+</body>
+</html>
